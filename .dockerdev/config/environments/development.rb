@@ -32,7 +32,7 @@ Rails.application.configure do
     :address              => "smtp.189.cn",
     :port                 => 25,
     :user_name            => 'albert_ludake@189.cn',
-    :password             => 'ldk6628501',
+    :password             => ${SMTP_PASSWORD},
     :authentication       => "login",
     :enable_starttls_auto => true
   }
