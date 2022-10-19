@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<h1> <%= I18n.t('user show page') %> </h1>
+
+<p>
+  <strong> <%= I18n.t('Email') %>:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong> <%= I18n.t('Username') %>:</strong>
+  <%= @user.login %>
+</p>
+
+<!-- include others, etc. -->
+<p>
+  <strong> <%= I18n.t("User's Avatar") %>:</strong>
+  <%= image_tag(@user.avatar_url, :size => "small_thumb", :alt => "Event's Avatar empty") if @user.avatar_url %>
+</p>
+
+<%= link_to  I18n.t('Edit Profile') , edit_user_path(@user) %> |
+<%#= link_to I18n.t('Settings') , edit_user_path %>

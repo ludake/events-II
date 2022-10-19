@@ -1,0 +1,19 @@
+conferences:
+  id:   1
+  name: 会议
+
+parties:
+  id:   2
+  name: 派对
+
+concerts:
+  id:   3
+  name: 演唱会
+
+readings:
+  id:   4
+  name: 阅读
+
+movies:
+  id:   5
+  name: 电影

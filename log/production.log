@@ -1,0 +1,1553 @@
+Started POST "/users" for 172.247.15.209 at 2022-10-08 14:21:28 +0800
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"/7ZJN+FopKRlauZCMlSUONwYsIwOVQ2KvWOchhjdZp8qKyn3AP8/TMOhhdxWSc6cZgFje8W699cCHTCQv1bQsQ==", "user"=>{"login"=>"ldk", "email"=>"ldk2008@163.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"我要注册！"}
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."login") = LOWER($1) LIMIT $2[0m  [["login", "ldk"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 2.1ms | Allocations: 1131)
+  Rendered users/new.html.erb within layouts/application (Duration: 4.6ms | Allocations: 2484)
+Completed 200 OK in 42ms (Views: 10.3ms | ActiveRecord: 8.4ms | Allocations: 18633)
+Started POST "/users" for 172.247.15.209 at 2022-10-08 14:22:00 +0800
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"vRmQaW399/EUI2CB+1/PpInd1WRh+Ssgbp3foAgL9whohPCpjGpsGbLoAx+fQpUAM8QGk6oW0X3R43O2r4BBJg==", "user"=>{"login"=>"ldk2022", "email"=>"ldk2008@163.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"我要注册！"}
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."login") = LOWER($1) LIMIT $2[0m  [["login", "ldk2022"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("login", "email", "hashed_password", "created_at", "updated_at", "activation_digest") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["login", "ldk2022"], ["email", "ldk2008@163.com"], ["hashed_password", "9753d10dd25304a0c9f46f69ccc215f4ba917a10"], ["created_at", "2022-10-08 06:22:00.706331"], ["updated_at", "2022-10-08 06:22:00.706331"], ["activation_digest", "$2a$12$hbnXUt5kW66oc/OQ5ZWtJOsFcqpZSzDcMxwimbt0XANhJT4pvWVWa"]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 197ms (ActiveRecord: 1.6ms | Allocations: 1448)
+  
+ActiveRecord::RecordNotUnique (PG::UniqueViolation: ERROR:  duplicate key value violates unique constraint "index_users_on_email"
+DETAIL:  Key (email)=(ldk2008@163.com) already exists.
+):
+  
+app/controllers/users_controller.rb:27:in `block in create'
+app/controllers/users_controller.rb:26:in `create'
+Started POST "/users" for 172.247.15.209 at 2022-10-08 14:22:26 +0800
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"vRmQaW399/EUI2CB+1/PpInd1WRh+Ssgbp3foAgL9whohPCpjGpsGbLoAx+fQpUAM8QGk6oW0X3R43O2r4BBJg==", "user"=>{"login"=>"ldk2022", "email"=>"ldk2008@163.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"我要注册！"}
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."login") = LOWER($1) LIMIT $2[0m  [["login", "ldk2022"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("login", "email", "hashed_password", "created_at", "updated_at", "activation_digest") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["login", "ldk2022"], ["email", "ldk2008@163.com"], ["hashed_password", "9753d10dd25304a0c9f46f69ccc215f4ba917a10"], ["created_at", "2022-10-08 06:22:26.127262"], ["updated_at", "2022-10-08 06:22:26.127262"], ["activation_digest", "$2a$12$44SEzXXW9hvSW/3MIipKCecdXqbcPIZCgVshdHJLkXxI/H7NRJYhu"]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 186ms (ActiveRecord: 1.4ms | Allocations: 1253)
+  
+ActiveRecord::RecordNotUnique (PG::UniqueViolation: ERROR:  duplicate key value violates unique constraint "index_users_on_email"
+DETAIL:  Key (email)=(ldk2008@163.com) already exists.
+):
+  
+app/controllers/users_controller.rb:27:in `block in create'
+app/controllers/users_controller.rb:26:in `create'
+Started POST "/users" for 172.247.15.209 at 2022-10-08 14:22:53 +0800
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"vRmQaW399/EUI2CB+1/PpInd1WRh+Ssgbp3foAgL9whohPCpjGpsGbLoAx+fQpUAM8QGk6oW0X3R43O2r4BBJg==", "user"=>{"login"=>"ldk2022", "email"=>"ldk2008@163.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"我要注册！"}
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."login") = LOWER($1) LIMIT $2[0m  [["login", "ldk2022"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.0ms)[0m  [1m[32mINSERT INTO "users" ("login", "email", "hashed_password", "created_at", "updated_at", "activation_digest") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["login", "ldk2022"], ["email", "ldk2008@163.com"], ["hashed_password", "9753d10dd25304a0c9f46f69ccc215f4ba917a10"], ["created_at", "2022-10-08 06:22:53.557804"], ["updated_at", "2022-10-08 06:22:53.557804"], ["activation_digest", "$2a$12$BouhRWtuxl0UUv04xerXpup/diuLYprFPIjhaZgX4XRWOTpa9y4wm"]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 225ms (ActiveRecord: 11.5ms | Allocations: 13679)
+  
+ActiveRecord::RecordNotUnique (PG::UniqueViolation: ERROR:  duplicate key value violates unique constraint "index_users_on_email"
+DETAIL:  Key (email)=(ldk2008@163.com) already exists.
+):
+  
+app/controllers/users_controller.rb:27:in `block in create'
+app/controllers/users_controller.rb:26:in `create'
+Started POST "/users" for 172.247.15.209 at 2022-10-08 14:24:39 +0800
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"vRmQaW399/EUI2CB+1/PpInd1WRh+Ssgbp3foAgL9whohPCpjGpsGbLoAx+fQpUAM8QGk6oW0X3R43O2r4BBJg==", "user"=>{"login"=>"ldk2022", "email"=>"ldk2008@163.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"我要注册！"}
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."login") = LOWER($1) LIMIT $2[0m  [["login", "ldk2022"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("login", "email", "hashed_password", "created_at", "updated_at", "activation_digest") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["login", "ldk2022"], ["email", "ldk2008@163.com"], ["hashed_password", "9753d10dd25304a0c9f46f69ccc215f4ba917a10"], ["created_at", "2022-10-08 06:24:39.265787"], ["updated_at", "2022-10-08 06:24:39.265787"], ["activation_digest", "$2a$12$GVXTclYv8ePNHaTy.gjG..U6.Db42LGZkjLVJj9rjAYz2mwpNQ6i6"]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 218ms (ActiveRecord: 11.1ms | Allocations: 13679)
+  
+ActiveRecord::RecordNotUnique (PG::UniqueViolation: ERROR:  duplicate key value violates unique constraint "index_users_on_email"
+DETAIL:  Key (email)=(ldk2008@163.com) already exists.
+):
+  
+app/controllers/users_controller.rb:27:in `block in create'
+app/controllers/users_controller.rb:26:in `create'
+Started POST "/users" for 172.247.15.209 at 2022-10-08 14:24:45 +0800
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"vRmQaW399/EUI2CB+1/PpInd1WRh+Ssgbp3foAgL9whohPCpjGpsGbLoAx+fQpUAM8QGk6oW0X3R43O2r4BBJg==", "user"=>{"login"=>"ldk2022", "email"=>"ldk2008@163.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"我要注册！"}
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."login") = LOWER($1) LIMIT $2[0m  [["login", "ldk2022"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("login", "email", "hashed_password", "created_at", "updated_at", "activation_digest") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["login", "ldk2022"], ["email", "ldk2008@163.com"], ["hashed_password", "9753d10dd25304a0c9f46f69ccc215f4ba917a10"], ["created_at", "2022-10-08 06:24:45.572765"], ["updated_at", "2022-10-08 06:24:45.572765"], ["activation_digest", "$2a$12$Z6DbqJUJASJNr5k2dPgDWeIvZflETpVJN0PRisNLIcv.olzwxkmci"]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 219ms (ActiveRecord: 11.1ms | Allocations: 13671)
+  
+ActiveRecord::RecordNotUnique (PG::UniqueViolation: ERROR:  duplicate key value violates unique constraint "index_users_on_email"
+DETAIL:  Key (email)=(ldk2008@163.com) already exists.
+):
+  
+app/controllers/users_controller.rb:27:in `block in create'
+app/controllers/users_controller.rb:26:in `create'
+Started POST "/users" for 172.247.15.209 at 2022-10-08 14:28:49 +0800
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"vRmQaW399/EUI2CB+1/PpInd1WRh+Ssgbp3foAgL9whohPCpjGpsGbLoAx+fQpUAM8QGk6oW0X3R43O2r4BBJg==", "user"=>{"login"=>"ldk2022", "email"=>"ldk2008@163.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"我要注册！"}
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."login") = LOWER($1) LIMIT $2[0m  [["login", "ldk2022"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("login", "email", "hashed_password", "created_at", "updated_at", "activation_digest") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["login", "ldk2022"], ["email", "ldk2008@163.com"], ["hashed_password", "9753d10dd25304a0c9f46f69ccc215f4ba917a10"], ["created_at", "2022-10-08 06:28:49.059677"], ["updated_at", "2022-10-08 06:28:49.059677"], ["activation_digest", "$2a$12$WXE1zqCzkD8AMDN8eR7R9O0FrXXPMA82BTibRAqONt5AduvaQY.ci"]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 220ms (ActiveRecord: 11.0ms | Allocations: 13672)
+  
+ActiveRecord::RecordNotUnique (PG::UniqueViolation: ERROR:  duplicate key value violates unique constraint "index_users_on_email"
+DETAIL:  Key (email)=(ldk2008@163.com) already exists.
+):
+  
+app/controllers/users_controller.rb:27:in `block in create'
+app/controllers/users_controller.rb:26:in `create'
+Started GET "/" for 172.247.15.209 at 2022-10-08 14:28:54 +0800
+Processing by EventsController#index as HTML
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" LIMIT $1 OFFSET $2[0m  [["LIMIT", 4], ["OFFSET", 0]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "registrations"."id" FROM "registrations" WHERE "registrations"."event_id" = $1[0m  [["event_id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered collection of events/_event.html.erb [1 times] (Duration: 13.5ms | Allocations: 2965)
+  Rendered events/index.html.erb within layouts/application (Duration: 31.3ms | Allocations: 11077)
+Completed 200 OK in 39ms (Views: 29.3ms | ActiveRecord: 6.9ms | Allocations: 14071)
+Started GET "/signup" for 172.247.15.209 at 2022-10-08 14:28:56 +0800
+Processing by UsersController#new as HTML
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 1.9ms | Allocations: 867)
+  Rendered users/new.html.erb within layouts/application (Duration: 4.7ms | Allocations: 2296)
+Completed 200 OK in 44ms (Views: 10.6ms | ActiveRecord: 9.5ms | Allocations: 16550)
+Started POST "/users" for 172.247.15.209 at 2022-10-08 14:29:36 +0800
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"im6v47jPZETQhHi8pUhl9SKVJGlWI3hn5qIM/6rrJaeZbb8olfzpO4qEFdvumBKPMsLIIeonZNxpfwAj7U9LXw==", "user"=>{"login"=>"ludk", "email"=>"albert_ludake@189.cn", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"我要注册！"}
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."login") = LOWER($1) LIMIT $2[0m  [["login", "ludk"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("login", "email", "hashed_password", "created_at", "updated_at", "activation_digest") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["login", "ludk"], ["email", "albert_ludake@189.cn"], ["hashed_password", "9753d10dd25304a0c9f46f69ccc215f4ba917a10"], ["created_at", "2022-10-08 06:29:36.972238"], ["updated_at", "2022-10-08 06:29:36.972238"], ["activation_digest", "$2a$12$u8Af9RRoork2a03La5KexugjjXAXJ0QS8VY7uPcRLt7BktX0FdCCi"]]
+  [1m[35m (8.1ms)[0m  [1m[35mCOMMIT[0m
+  Rendering user_mailer/account_activation.html.erb within layouts/mailer
+  Rendered user_mailer/account_activation.html.erb within layouts/mailer (Duration: 0.7ms | Allocations: 203)
+  Rendering user_mailer/account_activation.text.erb within layouts/mailer
+  Rendered user_mailer/account_activation.text.erb within layouts/mailer (Duration: 0.1ms | Allocations: 165)
+UserMailer#account_activation: processed outbound mail in 2.9ms
+Delivered mail 634118d128d54_1b30f0129949628@PylonTQx.mail (1288.7ms)
+Date: Sat, 08 Oct 2022 14:29:37 +0800
+From: ldkblueniu@gmail.com
+To: albert_ludake@189.cn
+Message-ID: <634118d128d54_1b30f0129949628@PylonTQx.mail>
+Subject: Account activation
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_634118d12897b_1b30f0129949586";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_634118d12897b_1b30f0129949586
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Hi ludk,
+
+Welcome to Events App! Click on the link below to activate your account:
+
+http://localhost:3003/account_activations/bKZLOSTLS6OacdGS2droSg/edit?email=albert_ludake%40189.cn
+
+
+----==_mimepart_634118d12897b_1b30f0129949586
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>Events App</h1>
+
+<p>Hi ludk,</p>
+
+<p>
+Welcome to Events App! Click on the link below to activate your account:
+</p>
+
+<a href="http://localhost:3003/account_activations/bKZLOSTLS6OacdGS2droSg/edit?email=albert_ludake%40189.cn">Activate</a>
+
+  </body>
+</html>
+
+----==_mimepart_634118d12897b_1b30f0129949586--
+
+Completed 500 Internal Server Error in 1491ms (ActiveRecord: 10.6ms | Allocations: 7487)
+  
+Net::SMTPAuthenticationError (534-5.7.9 Application-specific password required. Learn more at
+):
+  
+app/models/user.rb:75:in `send_activation_email'
+app/controllers/users_controller.rb:28:in `block in create'
+app/controllers/users_controller.rb:26:in `create'
+Started POST "/users" for 172.247.15.209 at 2022-10-08 14:37:17 +0800
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"im6v47jPZETQhHi8pUhl9SKVJGlWI3hn5qIM/6rrJaeZbb8olfzpO4qEFdvumBKPMsLIIeonZNxpfwAj7U9LXw==", "user"=>{"login"=>"ludk", "email"=>"albert_ludake@189.cn", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"我要注册！"}
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."login") = LOWER($1) LIMIT $2[0m  [["login", "ludk"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 2.0ms | Allocations: 1131)
+  Rendered users/new.html.erb within layouts/application (Duration: 4.5ms | Allocations: 2484)
+Completed 200 OK in 48ms (Views: 10.0ms | ActiveRecord: 10.5ms | Allocations: 18633)
+Started GET "/users" for 172.247.15.209 at 2022-10-08 14:38:09 +0800
+  
+AbstractController::ActionNotFound (The action 'index' could not be found for UsersController):
+  
+actionpack (6.0.5.1) lib/abstract_controller/base.rb:131:in `process'
+actionview (6.0.5.1) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.0.5.1) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.5.1) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.5.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.5.1) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.5.1) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.5.1) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.5.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.5.1) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.2.4) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.4) lib/rack/etag.rb:27:in `call'
+rack (2.2.4) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.4) lib/rack/head.rb:12:in `call'
+actionpack (6.0.5.1) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.4) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.4) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.0.5.1) lib/action_dispatch/middleware/cookies.rb:654:in `call'
+actionpack (6.0.5.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.5.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.5.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.5.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.0.5.1) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.5.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.5.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.5.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.5.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.5.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.5.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.5.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.5.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.5.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.4) lib/rack/method_override.rb:24:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.5.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.5.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.5.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.5.1) lib/action_dispatch/middleware/host_authorization.rb:97:in `call'
+railties (6.0.5.1) lib/rails/engine.rb:527:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/" for 172.247.15.209 at 2022-10-08 14:38:15 +0800
+Processing by EventsController#index as HTML
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" LIMIT $1 OFFSET $2[0m  [["LIMIT", 4], ["OFFSET", 0]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "registrations"."id" FROM "registrations" WHERE "registrations"."event_id" = $1[0m  [["event_id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered collection of events/_event.html.erb [1 times] (Duration: 25.7ms | Allocations: 9585)
+  Rendered events/index.html.erb within layouts/application (Duration: 45.7ms | Allocations: 18153)
+Completed 200 OK in 68ms (Views: 40.1ms | ActiveRecord: 14.5ms | Allocations: 25808)
+Started GET "/signup" for 172.247.15.209 at 2022-10-08 14:38:17 +0800
+Processing by UsersController#new as HTML
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 1.9ms | Allocations: 867)
+  Rendered users/new.html.erb within layouts/application (Duration: 4.8ms | Allocations: 2296)
+Completed 200 OK in 44ms (Views: 10.9ms | ActiveRecord: 9.1ms | Allocations: 16550)
+Started POST "/users" for 172.247.15.209 at 2022-10-08 14:38:54 +0800
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"Y6tsgU2h0FntA6WuUMz/ky4qIRbXw5O6sb4pjGixrDRwqHxKYJJdJrcDyMkbHIjpPn3NXmvHjwE+YyVQLxXCzA==", "user"=>{"login"=>"ldk", "email"=>"ldk2008@icloud.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"我要注册！"}
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."login") = LOWER($1) LIMIT $2[0m  [["login", "ldk"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 1.6ms | Allocations: 1131)
+  Rendered users/new.html.erb within layouts/application (Duration: 3.5ms | Allocations: 2484)
+Completed 200 OK in 35ms (Views: 7.7ms | ActiveRecord: 6.9ms | Allocations: 18633)
+Started POST "/users" for 172.247.15.209 at 2022-10-08 14:39:30 +0800
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"8zCgoErkHovis43cD7rLQy2+bWFRASDF2GnJlYwOeNcmrcBgq3OFY0R47kJrp5Hnl6e+lpru2phnF2WDK4XO+Q==", "user"=>{"login"=>"ldk11", "email"=>"ldk2008@icloud.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"我要注册！"}
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."login") = LOWER($1) LIMIT $2[0m  [["login", "ldk11"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 1.5ms | Allocations: 958)
+  Rendered users/new.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1398)
+Completed 200 OK in 9ms (Views: 3.7ms | ActiveRecord: 0.8ms | Allocations: 3794)
+Started POST "/users" for 172.247.15.209 at 2022-10-08 14:39:39 +0800
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"dPXX0qvfxgmHN2XVpefiT3LLML6Vx2r5w6CWcqI/i9uhaLcSSkhd4SH8BkvB+rjryNLjSV4okKR83jpkBbQ99Q==", "user"=>{"login"=>"ldk11", "email"=>"ldk2008@icloud.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"我要注册！"}
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."login") = LOWER($1) LIMIT $2[0m  [["login", "ldk11"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("login", "email", "hashed_password", "created_at", "updated_at", "activation_digest") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["login", "ldk11"], ["email", "ldk2008@icloud.com"], ["hashed_password", "7c4a8d09ca3762af61e59520943dc26494f8941b"], ["created_at", "2022-10-08 06:39:39.555085"], ["updated_at", "2022-10-08 06:39:39.555085"], ["activation_digest", "$2a$12$dInBFB.lSuIcb1zrSGgn7OQ0bpnm.n6yD5ZetBTRzavKbM./MFCuu"]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 219ms (ActiveRecord: 11.4ms | Allocations: 13672)
+  
+ActiveRecord::RecordNotUnique (PG::UniqueViolation: ERROR:  duplicate key value violates unique constraint "index_users_on_email"
+DETAIL:  Key (email)=(ldk2008@icloud.com) already exists.
+):
+  
+app/controllers/users_controller.rb:27:in `block in create'
+app/controllers/users_controller.rb:26:in `create'
+Started POST "/users" for 172.247.15.209 at 2022-10-08 14:41:50 +0800
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"dPXX0qvfxgmHN2XVpefiT3LLML6Vx2r5w6CWcqI/i9uhaLcSSkhd4SH8BkvB+rjryNLjSV4okKR83jpkBbQ99Q==", "user"=>{"login"=>"ldk11", "email"=>"ldk2008@icloud.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"我要注册！"}
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."login") = LOWER($1) LIMIT $2[0m  [["login", "ldk11"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("login", "email", "hashed_password", "created_at", "updated_at", "activation_digest") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["login", "ldk11"], ["email", "ldk2008@icloud.com"], ["hashed_password", "7c4a8d09ca3762af61e59520943dc26494f8941b"], ["created_at", "2022-10-08 06:41:50.223996"], ["updated_at", "2022-10-08 06:41:50.223996"], ["activation_digest", "$2a$12$5z6DUXbsXLvZXrc5Pf5XKObziGlAa0X/uQPRgi9Qk8EKrgHkjIRGe"]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 217ms (ActiveRecord: 9.9ms | Allocations: 13679)
+  
+ActiveRecord::RecordNotUnique (PG::UniqueViolation: ERROR:  duplicate key value violates unique constraint "index_users_on_email"
+DETAIL:  Key (email)=(ldk2008@icloud.com) already exists.
+):
+  
+app/controllers/users_controller.rb:27:in `block in create'
+app/controllers/users_controller.rb:26:in `create'
+Started POST "/users" for 172.247.15.209 at 2022-10-08 14:41:57 +0800
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"dPXX0qvfxgmHN2XVpefiT3LLML6Vx2r5w6CWcqI/i9uhaLcSSkhd4SH8BkvB+rjryNLjSV4okKR83jpkBbQ99Q==", "user"=>{"login"=>"ldk11", "email"=>"ldk2008@icloud.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"我要注册！"}
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."login") = LOWER($1) LIMIT $2[0m  [["login", "ldk11"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("login", "email", "hashed_password", "created_at", "updated_at", "activation_digest") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["login", "ldk11"], ["email", "ldk2008@icloud.com"], ["hashed_password", "7c4a8d09ca3762af61e59520943dc26494f8941b"], ["created_at", "2022-10-08 06:41:57.191607"], ["updated_at", "2022-10-08 06:41:57.191607"], ["activation_digest", "$2a$12$3EPJXLHC5P2gYNO8VDtu7uPn1wb52BbBb/Q5/mzHoeCNgPriROLme"]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 213ms (ActiveRecord: 8.6ms | Allocations: 13672)
+  
+ActiveRecord::RecordNotUnique (PG::UniqueViolation: ERROR:  duplicate key value violates unique constraint "index_users_on_email"
+DETAIL:  Key (email)=(ldk2008@icloud.com) already exists.
+):
+  
+app/controllers/users_controller.rb:27:in `block in create'
+app/controllers/users_controller.rb:26:in `create'
+Started GET "/" for 172.247.15.209 at 2022-10-08 14:41:59 +0800
+Processing by EventsController#index as HTML
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" LIMIT $1 OFFSET $2[0m  [["LIMIT", 4], ["OFFSET", 0]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "registrations"."id" FROM "registrations" WHERE "registrations"."event_id" = $1[0m  [["event_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered collection of events/_event.html.erb [1 times] (Duration: 8.7ms | Allocations: 2965)
+  Rendered events/index.html.erb within layouts/application (Duration: 18.9ms | Allocations: 11077)
+Completed 200 OK in 24ms (Views: 18.1ms | ActiveRecord: 4.0ms | Allocations: 14071)
+Started GET "/signup" for 172.247.15.209 at 2022-10-08 14:42:01 +0800
+Processing by UsersController#new as HTML
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 1.8ms | Allocations: 847)
+  Rendered users/new.html.erb within layouts/application (Duration: 4.6ms | Allocations: 2276)
+Completed 200 OK in 13ms (Views: 10.6ms | ActiveRecord: 0.5ms | Allocations: 5123)
+Started POST "/users" for 172.247.15.209 at 2022-10-08 14:42:21 +0800
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"pRLRqtywQjI7u8nwL2B/yxk8yM0imfIlYDj2tJLD6c22EcFh8YPPTWG7pJdksAixCWskhZ6d7p7v5fpo1WeHNQ==", "user"=>{"login"=>"ldk", "email"=>"ldk2008@163.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"我要注册！"}
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."login") = LOWER($1) LIMIT $2[0m  [["login", "ldk"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 2.1ms | Allocations: 1131)
+  Rendered users/new.html.erb within layouts/application (Duration: 4.7ms | Allocations: 2484)
+Completed 200 OK in 47ms (Views: 10.4ms | ActiveRecord: 9.9ms | Allocations: 18633)
+Started POST "/users" for 172.247.15.209 at 2022-10-08 14:42:35 +0800
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"RFMMlXY7lNaRF3/U10xnwKuayye3m1jC9D4t6lHHULqRzmxVl6wPPjfcHEqzUT1kEYMY0Hx0op9LQIH89kzmlA==", "user"=>{"login"=>"ldk123456", "email"=>"ldk2008@163.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"我要注册！"}
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."login") = LOWER($1) LIMIT $2[0m  [["login", "ldk123456"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("login", "email", "hashed_password", "created_at", "updated_at", "activation_digest") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["login", "ldk123456"], ["email", "ldk2008@163.com"], ["hashed_password", "7c4a8d09ca3762af61e59520943dc26494f8941b"], ["created_at", "2022-10-08 06:42:35.150263"], ["updated_at", "2022-10-08 06:42:35.150263"], ["activation_digest", "$2a$12$J7WSxyOUDnkB1r7gjZ/4k.uDzisCai6EM7P1/CqurSw59U1Z4VLPa"]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 197ms (ActiveRecord: 1.5ms | Allocations: 1262)
+  
+ActiveRecord::RecordNotUnique (PG::UniqueViolation: ERROR:  duplicate key value violates unique constraint "index_users_on_email"
+DETAIL:  Key (email)=(ldk2008@163.com) already exists.
+):
+  
+app/controllers/users_controller.rb:27:in `block in create'
+app/controllers/users_controller.rb:26:in `create'
+Started POST "/users" for 172.247.15.209 at 2022-10-08 14:43:02 +0800
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"RFMMlXY7lNaRF3/U10xnwKuayye3m1jC9D4t6lHHULqRzmxVl6wPPjfcHEqzUT1kEYMY0Hx0op9LQIH89kzmlA==", "user"=>{"login"=>"ldk123456", "email"=>"ldk2008@163.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"我要注册！"}
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."login") = LOWER($1) LIMIT $2[0m  [["login", "ldk123456"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("login", "email", "hashed_password", "created_at", "updated_at", "activation_digest") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["login", "ldk123456"], ["email", "ldk2008@163.com"], ["hashed_password", "7c4a8d09ca3762af61e59520943dc26494f8941b"], ["created_at", "2022-10-08 06:43:02.282807"], ["updated_at", "2022-10-08 06:43:02.282807"], ["activation_digest", "$2a$12$arhgu7d9nmt6o2JKUjvs/O71ozHxXYomJQ/62ktM2oFR0fyde.kV6"]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 214ms (ActiveRecord: 11.2ms | Allocations: 13679)
+  
+ActiveRecord::RecordNotUnique (PG::UniqueViolation: ERROR:  duplicate key value violates unique constraint "index_users_on_email"
+DETAIL:  Key (email)=(ldk2008@163.com) already exists.
+):
+  
+app/controllers/users_controller.rb:27:in `block in create'
+app/controllers/users_controller.rb:26:in `create'
+Started POST "/users" for 172.247.15.209 at 2022-10-08 14:45:05 +0800
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"RFMMlXY7lNaRF3/U10xnwKuayye3m1jC9D4t6lHHULqRzmxVl6wPPjfcHEqzUT1kEYMY0Hx0op9LQIH89kzmlA==", "user"=>{"login"=>"ldk123456", "email"=>"ldk2008@163.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"我要注册！"}
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."login") = LOWER($1) LIMIT $2[0m  [["login", "ldk123456"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("login", "email", "hashed_password", "created_at", "updated_at", "activation_digest") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["login", "ldk123456"], ["email", "ldk2008@163.com"], ["hashed_password", "7c4a8d09ca3762af61e59520943dc26494f8941b"], ["created_at", "2022-10-08 06:45:05.852631"], ["updated_at", "2022-10-08 06:45:05.852631"], ["activation_digest", "$2a$12$WspqK/SRmPBmFaJlZkbuu.a8iNZvJRsNsu6HwHxywYov9azRQh8Yu"]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 219ms (ActiveRecord: 9.6ms | Allocations: 13671)
+  
+ActiveRecord::RecordNotUnique (PG::UniqueViolation: ERROR:  duplicate key value violates unique constraint "index_users_on_email"
+DETAIL:  Key (email)=(ldk2008@163.com) already exists.
+):
+  
+app/controllers/users_controller.rb:27:in `block in create'
+app/controllers/users_controller.rb:26:in `create'
+Started GET "/" for 172.247.15.209 at 2022-10-08 14:45:08 +0800
+Processing by EventsController#index as HTML
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" LIMIT $1 OFFSET $2[0m  [["LIMIT", 4], ["OFFSET", 0]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "registrations"."id" FROM "registrations" WHERE "registrations"."event_id" = $1[0m  [["event_id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered collection of events/_event.html.erb [1 times] (Duration: 13.3ms | Allocations: 2965)
+  Rendered events/index.html.erb within layouts/application (Duration: 30.4ms | Allocations: 11077)
+Completed 200 OK in 37ms (Views: 28.6ms | ActiveRecord: 6.7ms | Allocations: 14071)
+Started GET "/signup" for 172.247.15.209 at 2022-10-08 14:45:11 +0800
+Processing by UsersController#new as HTML
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 2.0ms | Allocations: 867)
+  Rendered users/new.html.erb within layouts/application (Duration: 5.0ms | Allocations: 2296)
+Completed 200 OK in 43ms (Views: 11.1ms | ActiveRecord: 9.0ms | Allocations: 16550)
+Started POST "/users" for 172.247.15.209 at 2022-10-08 14:45:31 +0800
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"8ddA+LTkY2I5U17ZFw4aC6eUcoUWFy9DF0QF9BHdU1fi1FAzmdfuHWNTM75c3m1xt8OezaoTM/iYmQkoVnk9rw==", "user"=>{"login"=>"lll", "email"=>"lll@163.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"我要注册！"}
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."login") = LOWER($1) LIMIT $2[0m  [["login", "lll"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("login", "email", "hashed_password", "created_at", "updated_at", "activation_digest") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["login", "lll"], ["email", "lll@163.com"], ["hashed_password", "7c4a8d09ca3762af61e59520943dc26494f8941b"], ["created_at", "2022-10-08 06:45:31.327771"], ["updated_at", "2022-10-08 06:45:31.327771"], ["activation_digest", "$2a$12$znB4II6OZZJdaxbo57JGOu61gl1ImIylimQPeSS65Lxezti143JTq"]]
+  [1m[35m (3.8ms)[0m  [1m[35mCOMMIT[0m
+  Rendering user_mailer/account_activation.html.erb within layouts/mailer
+  Rendered user_mailer/account_activation.html.erb within layouts/mailer (Duration: 0.8ms | Allocations: 233)
+  Rendering user_mailer/account_activation.text.erb within layouts/mailer
+  Rendered user_mailer/account_activation.text.erb within layouts/mailer (Duration: 0.2ms | Allocations: 165)
+UserMailer#account_activation: processed outbound mail in 3.7ms
+Delivered mail 63411c8b7edae_1c5940128b810470@PylonTQx.mail (1.8ms)
+Date: Sat, 08 Oct 2022 14:45:31 +0800
+From: ldkblueniu@gmail.com
+To: lll@163.com
+Message-ID: <63411c8b7edae_1c5940128b810470@PylonTQx.mail>
+Subject: Account activation
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_63411c8b7e9a0_1c5940128b810342";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_63411c8b7e9a0_1c5940128b810342
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Hi lll,
+
+Welcome to Events App! Click on the link below to activate your account:
+
+http://localhost:3003/account_activations/C_XjxFt6cnIrui5idw3NBw/edit?email=lll%40163.com
+
+
+----==_mimepart_63411c8b7e9a0_1c5940128b810342
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>Events App</h1>
+
+<p>Hi lll,</p>
+
+<p>
+Welcome to Events App! Click on the link below to activate your account:
+</p>
+
+<a href="http://localhost:3003/account_activations/C_XjxFt6cnIrui5idw3NBw/edit?email=lll%40163.com">Activate</a>
+
+  </body>
+</html>
+
+----==_mimepart_63411c8b7e9a0_1c5940128b810342--
+
+Completed 500 Internal Server Error in 226ms (ActiveRecord: 12.3ms | Allocations: 18675)
+  
+Errno::ECONNREFUSED (Connection refused - connect(2) for "localhost" port 25):
+  
+app/models/user.rb:75:in `send_activation_email'
+app/controllers/users_controller.rb:28:in `block in create'
+app/controllers/users_controller.rb:26:in `create'
+Started POST "/users" for 172.247.15.209 at 2022-10-08 14:47:23 +0800
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"8ddA+LTkY2I5U17ZFw4aC6eUcoUWFy9DF0QF9BHdU1fi1FAzmdfuHWNTM75c3m1xt8OezaoTM/iYmQkoVnk9rw==", "user"=>{"login"=>"lll", "email"=>"lll@163.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"我要注册！"}
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."login") = LOWER($1) LIMIT $2[0m  [["login", "lll"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 2.1ms | Allocations: 1131)
+  Rendered users/new.html.erb within layouts/application (Duration: 4.7ms | Allocations: 2484)
+Completed 200 OK in 49ms (Views: 10.3ms | ActiveRecord: 10.4ms | Allocations: 18633)
+Started GET "/events" for 172.247.15.209 at 2022-10-08 14:47:44 +0800
+Processing by EventsController#index as HTML
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" LIMIT $1 OFFSET $2[0m  [["LIMIT", 4], ["OFFSET", 0]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "registrations"."id" FROM "registrations" WHERE "registrations"."event_id" = $1[0m  [["event_id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered collection of events/_event.html.erb [1 times] (Duration: 26.1ms | Allocations: 9585)
+  Rendered events/index.html.erb within layouts/application (Duration: 46.7ms | Allocations: 18153)
+Completed 200 OK in 69ms (Views: 41.1ms | ActiveRecord: 14.7ms | Allocations: 25816)
+Started GET "/events" for 172.247.15.209 at 2022-10-08 14:47:58 +0800
+Processing by EventsController#index as HTML
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" LIMIT $1 OFFSET $2[0m  [["LIMIT", 4], ["OFFSET", 0]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "registrations"."id" FROM "registrations" WHERE "registrations"."event_id" = $1[0m  [["event_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered collection of events/_event.html.erb [1 times] (Duration: 3.5ms | Allocations: 1503)
+  Rendered events/index.html.erb within layouts/application (Duration: 4.7ms | Allocations: 1762)
+Completed 200 OK in 8ms (Views: 5.6ms | ActiveRecord: 1.1ms | Allocations: 3002)
+Started GET "/signup" for 172.247.15.209 at 2022-10-08 14:48:00 +0800
+Processing by UsersController#new as HTML
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 3.2ms | Allocations: 867)
+  Rendered users/new.html.erb within layouts/application (Duration: 7.6ms | Allocations: 2296)
+Completed 200 OK in 48ms (Views: 16.7ms | ActiveRecord: 8.6ms | Allocations: 16550)
+Started POST "/users" for 172.247.15.209 at 2022-10-09 19:32:17 +0800
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"NfCHctp1Kd9+P4dTkSRsu5PJXogQUhMojpnF+pEJY3/gbeeyO+KyN9j05M31OTYfKdCNf9u96XUx52nsNoLVUQ==", "user"=>{"login"=>"ludakeII", "email"=>"ldkblueniu@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "avatar"=>"", "avatar_cache"=>""}, "commit"=>"我要注册！"}
+  [1m[35m (0.2ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."login") = LOWER($1) LIMIT $2[0m  [["login", "ludakeII"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "ldkblueniu@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 211ms (ActiveRecord: 9.7ms | Allocations: 16529)
+  
+NoMethodError (undefined method `encrypt_new_password' for #<User:0x00007f5b100df9e0>):
+  
+app/controllers/users_controller.rb:29:in `block in create'
+app/controllers/users_controller.rb:28:in `create'
+Started GET "/" for 172.247.15.209 at 2022-10-09 19:32:41 +0800
+Processing by EventsController#index as HTML
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" LIMIT $1 OFFSET $2[0m  [["LIMIT", 4], ["OFFSET", 0]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "registrations"."id" FROM "registrations" WHERE "registrations"."event_id" = $1[0m  [["event_id", 1]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "registrations"."id" FROM "registrations" WHERE "registrations"."event_id" = $1[0m  [["event_id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered collection of events/_event.html.erb [1 times] (Duration: 17.3ms | Allocations: 8885)
+  Rendered events/index.html.erb within layouts/application (Duration: 30.8ms | Allocations: 17453)
+Completed 200 OK in 49ms (Views: 25.4ms | ActiveRecord: 12.6ms | Allocations: 25114)
+Started GET "/login" for 172.247.15.209 at 2022-10-09 19:32:55 +0800
+Processing by UsersController#login as HTML
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."login" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering users/login.html.erb within layouts/application
+  Rendered users/login.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1517)
+Completed 200 OK in 29ms (Views: 6.0ms | ActiveRecord: 6.9ms | Allocations: 10409)
+Started GET "/login" for 172.247.15.209 at 2022-10-09 19:33:14 +0800
+Processing by UsersController#login as HTML
+Completed 500 Internal Server Error in 2ms (Allocations: 1679)
+  
+PG::ConnectionBad (could not connect to server: Connection refused
+	Is the server running on host "::1" and accepting
+	TCP/IP connections on port 5432?
+
+could not connect to server: Connection refused
+	Is the server running on host "127.0.0.1" and accepting
+	TCP/IP connections on port 5432?
+):
+  
+app/controllers/application_controller.rb:10:in `block in set_charset'
+app/controllers/application_controller.rb:9:in `set_charset'
+Started GET "/login" for 172.247.15.209 at 2022-10-09 19:33:53 +0800
+Processing by UsersController#login as HTML
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."login" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering users/login.html.erb within layouts/application
+  Rendered users/login.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1517)
+Completed 200 OK in 30ms (Views: 6.3ms | ActiveRecord: 7.9ms | Allocations: 10409)
+Started GET "/login" for 172.247.15.209 at 2022-10-09 19:38:17 +0800
+Processing by UsersController#login as HTML
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."login" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering users/login.html.erb within layouts/application
+  Rendered users/login.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1517)
+Completed 200 OK in 26ms (Views: 4.6ms | ActiveRecord: 6.8ms | Allocations: 10409)
+Started GET "/events" for 172.247.15.209 at 2022-10-09 19:38:20 +0800
+Processing by EventsController#index as HTML
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" LIMIT $1 OFFSET $2[0m  [["LIMIT", 4], ["OFFSET", 0]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "registrations"."id" FROM "registrations" WHERE "registrations"."event_id" = $1[0m  [["event_id", 1]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "registrations"."id" FROM "registrations" WHERE "registrations"."event_id" = $1[0m  [["event_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered collection of events/_event.html.erb [1 times] (Duration: 20.4ms | Allocations: 7473)
+  Rendered events/index.html.erb within layouts/application (Duration: 39.0ms | Allocations: 15686)
+Completed 200 OK in 44ms (Views: 32.6ms | ActiveRecord: 9.0ms | Allocations: 17628)
+Started GET "/events/1" for 172.247.15.209 at 2022-10-09 19:38:22 +0800
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "registrations"."id" FROM "registrations" WHERE "registrations"."event_id" = $1[0m  [["event_id", 1]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "registrations"."id" FROM "registrations" WHERE "registrations"."event_id" = $1[0m  [["event_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered events/show.html.erb within layouts/application (Duration: 17.6ms | Allocations: 8156)
+Completed 200 OK in 54ms (Views: 18.7ms | ActiveRecord: 8.7ms | Allocations: 24188)
+Started GET "/events" for 172.247.15.209 at 2022-10-09 19:38:28 +0800
+Processing by EventsController#index as HTML
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" LIMIT $1 OFFSET $2[0m  [["LIMIT", 4], ["OFFSET", 0]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "registrations"."id" FROM "registrations" WHERE "registrations"."event_id" = $1[0m  [["event_id", 1]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "registrations"."id" FROM "registrations" WHERE "registrations"."event_id" = $1[0m  [["event_id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered collection of events/_event.html.erb [1 times] (Duration: 17.1ms | Allocations: 8885)
+  Rendered events/index.html.erb within layouts/application (Duration: 36.9ms | Allocations: 17453)
+Completed 200 OK in 57ms (Views: 30.4ms | ActiveRecord: 13.9ms | Allocations: 25114)
+Started GET "/login" for 172.247.15.209 at 2022-10-09 19:38:41 +0800
+Processing by UsersController#login as HTML
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."login" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering users/login.html.erb within layouts/application
+  Rendered users/login.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1517)
+Completed 200 OK in 20ms (Views: 4.6ms | ActiveRecord: 3.9ms | Allocations: 10409)
+Started POST "/login" for 172.247.15.209 at 2022-10-09 19:38:53 +0800
+Processing by UsersController#login as HTML
+  Parameters: {"authenticity_token"=>"+IrCRptPZjo2iAngqIUXUx+muSet+2yhvBhZEFZnMbsuFyonIcyYlW3/XxtdmkhHSNUUmBTnLz9BM6A5tdCSIQ==", "login"=>"ludake", "password"=>"[FILTERED]", "commit"=>"登录"}
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."login" = $1 LIMIT $2[0m  [["login", "ludake"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 3.6ms | Allocations: 6207)
+  
+BCrypt::Errors::InvalidHash (invalid hash):
+  
+app/controllers/users_controller.rb:79:in `login'
+Started POST "/login" for 172.247.15.209 at 2022-10-09 19:39:02 +0800
+Processing by UsersController#login as HTML
+  Parameters: {"authenticity_token"=>"+IrCRptPZjo2iAngqIUXUx+muSet+2yhvBhZEFZnMbsuFyonIcyYlW3/XxtdmkhHSNUUmBTnLz9BM6A5tdCSIQ==", "login"=>"ludake", "password"=>"[FILTERED]", "commit"=>"登录"}
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."login" = $1 LIMIT $2[0m  [["login", "ludake"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.5ms | Allocations: 587)
+  
+BCrypt::Errors::InvalidHash (invalid hash):
+  
+app/controllers/users_controller.rb:79:in `login'
+Started POST "/login" for 172.247.15.209 at 2022-10-09 19:39:21 +0800
+Processing by UsersController#login as HTML
+  Parameters: {"authenticity_token"=>"+IrCRptPZjo2iAngqIUXUx+muSet+2yhvBhZEFZnMbsuFyonIcyYlW3/XxtdmkhHSNUUmBTnLz9BM6A5tdCSIQ==", "login"=>"ludake", "password"=>"[FILTERED]", "commit"=>"登录"}
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."login" = $1 LIMIT $2[0m  [["login", "ludake"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 7.1ms | Allocations: 12100)
+  
+BCrypt::Errors::InvalidHash (invalid hash):
+  
+app/controllers/users_controller.rb:79:in `login'
+Started POST "/login" for 172.247.15.209 at 2022-10-09 19:40:27 +0800
+Processing by UsersController#login as HTML
+  Parameters: {"authenticity_token"=>"+IrCRptPZjo2iAngqIUXUx+muSet+2yhvBhZEFZnMbsuFyonIcyYlW3/XxtdmkhHSNUUmBTnLz9BM6A5tdCSIQ==", "login"=>"ludake", "password"=>"[FILTERED]", "commit"=>"登录"}
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."login" = $1 LIMIT $2[0m  [["login", "ludake"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 9.9ms | Allocations: 12100)
+  
+BCrypt::Errors::InvalidHash (invalid hash):
+  
+app/controllers/users_controller.rb:79:in `login'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+Started POST "/login" for 172.247.15.209 at 2022-10-09 20:10:32 +0800
+Processing by UsersController#login as HTML
+  Parameters: {"authenticity_token"=>"+IrCRptPZjo2iAngqIUXUx+muSet+2yhvBhZEFZnMbsuFyonIcyYlW3/XxtdmkhHSNUUmBTnLz9BM6A5tdCSIQ==", "login"=>"ludake", "password"=>"[FILTERED]", "commit"=>"登录"}
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."login" = $1 LIMIT $2[0m  [["login", "ludake"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 9.4ms | Allocations: 12100)
+  
+BCrypt::Errors::InvalidHash (invalid hash):
+  
+app/controllers/users_controller.rb:79:in `login'
+Started GET "/" for 172.247.15.209 at 2022-10-09 22:59:06 +0800
+Processing by EventsController#index as HTML
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" LIMIT $1 OFFSET $2[0m  [["LIMIT", 4], ["OFFSET", 0]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "registrations"."id" FROM "registrations" WHERE "registrations"."event_id" = $1[0m  [["event_id", 1]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "registrations"."id" FROM "registrations" WHERE "registrations"."event_id" = $1[0m  [["event_id", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered collection of events/_event.html.erb [1 times] (Duration: 12.6ms | Allocations: 8885)
+  Rendered events/index.html.erb within layouts/application (Duration: 25.9ms | Allocations: 17453)
+Completed 200 OK in 67ms (Views: 21.3ms | ActiveRecord: 18.5ms | Allocations: 25114)
+Started GET "/events/1" for 172.247.15.209 at 2022-10-09 22:59:17 +0800
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.2ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "registrations"."id" FROM "registrations" WHERE "registrations"."event_id" = $1[0m  [["event_id", 1]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "registrations"."id" FROM "registrations" WHERE "registrations"."event_id" = $1[0m  [["event_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered events/show.html.erb within layouts/application (Duration: 9.8ms | Allocations: 8156)
+Completed 200 OK in 32ms (Views: 9.4ms | ActiveRecord: 7.6ms | Allocations: 24188)
+Started GET "/events" for 172.247.15.209 at 2022-10-09 22:59:22 +0800
+Processing by EventsController#index as HTML
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" LIMIT $1 OFFSET $2[0m  [["LIMIT", 4], ["OFFSET", 0]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "registrations"."id" FROM "registrations" WHERE "registrations"."event_id" = $1[0m  [["event_id", 1]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "registrations"."id" FROM "registrations" WHERE "registrations"."event_id" = $1[0m  [["event_id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered collection of events/_event.html.erb [1 times] (Duration: 22.9ms | Allocations: 8885)
+  Rendered events/index.html.erb within layouts/application (Duration: 42.3ms | Allocations: 17453)
+Completed 200 OK in 64ms (Views: 36.7ms | ActiveRecord: 14.0ms | Allocations: 25114)
+Started GET "/events" for 172.247.15.209 at 2022-10-09 23:08:41 +0800
+Processing by EventsController#index as HTML
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" LIMIT $1 OFFSET $2[0m  [["LIMIT", 4], ["OFFSET", 0]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "registrations"."id" FROM "registrations" WHERE "registrations"."event_id" = $1[0m  [["event_id", 1]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "registrations"."id" FROM "registrations" WHERE "registrations"."event_id" = $1[0m  [["event_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered collection of events/_event.html.erb [1 times] (Duration: 17.7ms | Allocations: 8885)
+  Rendered events/index.html.erb within layouts/application (Duration: 32.0ms | Allocations: 17453)
+Completed 200 OK in 50ms (Views: 28.6ms | ActiveRecord: 11.2ms | Allocations: 25114)
+Started GET "/events/1" for 172.247.15.209 at 2022-10-09 23:09:01 +0800
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "registrations"."id" FROM "registrations" WHERE "registrations"."event_id" = $1[0m  [["event_id", 1]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "registrations"."id" FROM "registrations" WHERE "registrations"."event_id" = $1[0m  [["event_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered events/show.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1685)
+Completed 200 OK in 7ms (Views: 3.6ms | ActiveRecord: 1.2ms | Allocations: 3264)
+Started GET "/signup" for 172.247.15.209 at 2022-10-09 23:09:24 +0800
+Processing by UsersController#new as HTML
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 1.4ms | Allocations: 1123)
+  Rendered users/new.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1919)
+Completed 200 OK in 9ms (Views: 7.5ms | ActiveRecord: 0.4ms | Allocations: 3759)
+Started GET "/login" for 172.247.15.209 at 2022-10-09 23:09:29 +0800
+Processing by UsersController#login as HTML
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."login" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering users/login.html.erb within layouts/application
+  Rendered users/login.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1517)
+Completed 200 OK in 28ms (Views: 6.3ms | ActiveRecord: 6.6ms | Allocations: 10409)
+Started POST "/login" for 172.247.15.209 at 2022-10-09 23:09:43 +0800
+Processing by UsersController#login as HTML
+  Parameters: {"authenticity_token"=>"LmXEtW72J4PUTDVYbffwYuKW8bnrqKV1Ex6I6xOY4Sz4+CzU1HXZLI87Y6OY6K92teVcBlK05uvuNXHC8C9Ctg==", "login"=>"ludake", "password"=>"[FILTERED]", "commit"=>"登录"}
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."login" = $1 LIMIT $2[0m  [["login", "ludake"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.7ms | Allocations: 729)
+  
+BCrypt::Errors::InvalidHash (invalid hash):
+  
+app/controllers/users_controller.rb:79:in `login'
+Started POST "/login" for 172.247.15.209 at 2022-10-09 23:11:05 +0800
+Processing by UsersController#login as HTML
+  Parameters: {"authenticity_token"=>"LmXEtW72J4PUTDVYbffwYuKW8bnrqKV1Ex6I6xOY4Sz4+CzU1HXZLI87Y6OY6K92teVcBlK05uvuNXHC8C9Ctg==", "login"=>"ludake", "password"=>"[FILTERED]", "commit"=>"登录"}
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."login" = $1 LIMIT $2[0m  [["login", "ludake"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 6.2ms | Allocations: 12100)
+  
+BCrypt::Errors::InvalidHash (invalid hash):
+  
+app/controllers/users_controller.rb:79:in `login'
+Started POST "/login" for 172.247.15.209 at 2022-10-09 23:14:35 +0800
+Processing by UsersController#login as HTML
+  Parameters: {"authenticity_token"=>"LmXEtW72J4PUTDVYbffwYuKW8bnrqKV1Ex6I6xOY4Sz4+CzU1HXZLI87Y6OY6K92teVcBlK05uvuNXHC8C9Ctg==", "login"=>"ludake", "password"=>"[FILTERED]", "commit"=>"登录"}
+  [1m[35m (0.2ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."login" = $1 LIMIT $2[0m  [["login", "ludake"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 4.9ms | Allocations: 12101)
+  
+BCrypt::Errors::InvalidHash (invalid hash):
+  
+app/controllers/users_controller.rb:79:in `login'
+Started GET "/" for 172.247.15.209 at 2022-10-09 23:15:01 +0800
+Processing by EventsController#index as HTML
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" LIMIT $1 OFFSET $2[0m  [["LIMIT", 4], ["OFFSET", 0]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "registrations"."id" FROM "registrations" WHERE "registrations"."event_id" = $1[0m  [["event_id", 1]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "registrations"."id" FROM "registrations" WHERE "registrations"."event_id" = $1[0m  [["event_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered collection of events/_event.html.erb [1 times] (Duration: 6.2ms | Allocations: 2811)
+  Rendered events/index.html.erb within layouts/application (Duration: 14.8ms | Allocations: 10831)
+Completed 200 OK in 19ms (Views: 13.3ms | ActiveRecord: 4.0ms | Allocations: 13808)
+Started GET "/" for 172.247.15.209 at 2022-10-09 23:16:52 +0800
+Processing by EventsController#index as HTML
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" LIMIT $1 OFFSET $2[0m  [["LIMIT", 4], ["OFFSET", 0]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "registrations"."id" FROM "registrations" WHERE "registrations"."event_id" = $1[0m  [["event_id", 1]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "registrations"."id" FROM "registrations" WHERE "registrations"."event_id" = $1[0m  [["event_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered collection of events/_event.html.erb [1 times] (Duration: 21.5ms | Allocations: 8884)
+  Rendered events/index.html.erb within layouts/application (Duration: 40.2ms | Allocations: 17452)
+Completed 200 OK in 60ms (Views: 36.4ms | ActiveRecord: 11.3ms | Allocations: 25114)
+Started GET "/events/1" for 172.247.15.209 at 2022-10-09 23:16:54 +0800
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "registrations"."id" FROM "registrations" WHERE "registrations"."event_id" = $1[0m  [["event_id", 1]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "registrations"."id" FROM "registrations" WHERE "registrations"."event_id" = $1[0m  [["event_id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered events/show.html.erb within layouts/application (Duration: 16.9ms | Allocations: 8155)
+Completed 200 OK in 51ms (Views: 14.9ms | ActiveRecord: 13.7ms | Allocations: 24188)
+Started GET "/events" for 172.247.15.209 at 2022-10-09 23:17:02 +0800
+Processing by EventsController#index as HTML
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" LIMIT $1 OFFSET $2[0m  [["LIMIT", 4], ["OFFSET", 0]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "registrations"."id" FROM "registrations" WHERE "registrations"."event_id" = $1[0m  [["event_id", 1]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "registrations"."id" FROM "registrations" WHERE "registrations"."event_id" = $1[0m  [["event_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered collection of events/_event.html.erb [1 times] (Duration: 22.1ms | Allocations: 8884)
+  Rendered events/index.html.erb within layouts/application (Duration: 40.6ms | Allocations: 17452)
+Completed 200 OK in 60ms (Views: 36.7ms | ActiveRecord: 12.0ms | Allocations: 25114)
+Started GET "/signup" for 172.247.15.209 at 2022-10-09 23:17:06 +0800
+Processing by UsersController#new as HTML
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 2.0ms | Allocations: 1123)
+  Rendered users/new.html.erb within layouts/application (Duration: 3.8ms | Allocations: 1919)
+Completed 200 OK in 8ms (Views: 6.1ms | ActiveRecord: 0.4ms | Allocations: 3759)
+Started GET "/login" for 172.247.15.209 at 2022-10-09 23:17:14 +0800
+Processing by UsersController#login as HTML
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."login" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering users/login.html.erb within layouts/application
+  Rendered users/login.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1386)
+Completed 200 OK in 7ms (Views: 4.1ms | ActiveRecord: 0.6ms | Allocations: 3415)
+Started POST "/login" for 172.247.15.209 at 2022-10-09 23:17:21 +0800
+Processing by UsersController#login as HTML
+  Parameters: {"authenticity_token"=>"dfHFB9+N8453AT4jGikXXJN6oVa3VRtXKEqeBM968zmjbC1mZQ4NISx2aNjvNkhIxAkM6Q5JWMnVYWctLM1Qow==", "login"=>"ludake", "password"=>"[FILTERED]", "commit"=>"登录"}
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."login" = $1 LIMIT $2[0m  [["login", "ludake"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 8.6ms | Allocations: 12101)
+  
+BCrypt::Errors::InvalidHash (invalid hash):
+  
+app/controllers/users_controller.rb:79:in `login'
+Started POST "/login" for 172.247.15.209 at 2022-10-09 23:20:48 +0800
+Processing by UsersController#login as HTML
+  Parameters: {"authenticity_token"=>"dfHFB9+N8453AT4jGikXXJN6oVa3VRtXKEqeBM968zmjbC1mZQ4NISx2aNjvNkhIxAkM6Q5JWMnVYWctLM1Qow==", "login"=>"ludake", "password"=>"[FILTERED]", "commit"=>"登录"}
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."login" = $1 LIMIT $2[0m  [["login", "ludake"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.8ms | Allocations: 728)
+  
+BCrypt::Errors::InvalidHash (invalid hash):
+  
+app/controllers/users_controller.rb:79:in `login'
+Started POST "/login" for 172.247.15.209 at 2022-10-09 23:25:53 +0800
+Processing by UsersController#login as HTML
+  Parameters: {"authenticity_token"=>"dfHFB9+N8453AT4jGikXXJN6oVa3VRtXKEqeBM968zmjbC1mZQ4NISx2aNjvNkhIxAkM6Q5JWMnVYWctLM1Qow==", "login"=>"ludake", "password"=>"[FILTERED]", "commit"=>"登录"}
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."login" = $1 LIMIT $2[0m  [["login", "ludake"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 45ms (ActiveRecord: 8.6ms | Allocations: 12118)
+  
+BCrypt::Errors::InvalidHash (invalid hash):
+  
+app/controllers/users_controller.rb:79:in `login'
+Started POST "/login" for 172.247.15.209 at 2022-10-09 23:26:06 +0800
+Processing by UsersController#login as HTML
+  Parameters: {"authenticity_token"=>"dfHFB9+N8453AT4jGikXXJN6oVa3VRtXKEqeBM968zmjbC1mZQ4NISx2aNjvNkhIxAkM6Q5JWMnVYWctLM1Qow==", "login"=>"ludake", "password"=>"[FILTERED]", "commit"=>"登录"}
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."login" = $1 LIMIT $2[0m  [["login", "ludake"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 50ms (ActiveRecord: 8.6ms | Allocations: 12119)
+  
+BCrypt::Errors::InvalidHash (invalid hash):
+  
+app/controllers/users_controller.rb:79:in `login'
+Started GET "/" for 172.247.15.209 at 2022-10-09 23:26:19 +0800
+Processing by EventsController#index as HTML
+  [1m[35m (0.2ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" LIMIT $1 OFFSET $2[0m  [["LIMIT", 4], ["OFFSET", 0]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "registrations"."id" FROM "registrations" WHERE "registrations"."event_id" = $1[0m  [["event_id", 1]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "registrations"."id" FROM "registrations" WHERE "registrations"."event_id" = $1[0m  [["event_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered collection of events/_event.html.erb [1 times] (Duration: 17.7ms | Allocations: 8888)
+  Rendered events/index.html.erb within layouts/application (Duration: 47.9ms | Allocations: 17471)
+Completed 200 OK in 66ms (Views: 42.9ms | ActiveRecord: 12.2ms | Allocations: 25133)
+Started GET "/login" for 172.247.15.209 at 2022-10-09 23:27:16 +0800
+Processing by UsersController#login as HTML
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."login" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering users/login.html.erb within layouts/application
+  Rendered users/login.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1512)
+Completed 200 OK in 28ms (Views: 6.0ms | ActiveRecord: 6.9ms | Allocations: 10396)
+Started GET "/events" for 172.247.15.209 at 2022-10-09 23:27:19 +0800
+Processing by EventsController#index as HTML
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" LIMIT $1 OFFSET $2[0m  [["LIMIT", 4], ["OFFSET", 0]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "registrations"."id" FROM "registrations" WHERE "registrations"."event_id" = $1[0m  [["event_id", 1]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "registrations"."id" FROM "registrations" WHERE "registrations"."event_id" = $1[0m  [["event_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered collection of events/_event.html.erb [1 times] (Duration: 17.3ms | Allocations: 8888)
+  Rendered events/index.html.erb within layouts/application (Duration: 46.7ms | Allocations: 17471)
+Completed 200 OK in 63ms (Views: 41.8ms | ActiveRecord: 11.3ms | Allocations: 25133)
+Started GET "/login" for 172.247.15.209 at 2022-10-09 23:27:24 +0800
+Processing by UsersController#login as HTML
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."login" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering users/login.html.erb within layouts/application
+  Rendered users/login.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1512)
+Completed 200 OK in 21ms (Views: 4.4ms | ActiveRecord: 5.1ms | Allocations: 10396)
+Started GET "/events" for 172.247.15.209 at 2022-10-09 23:27:27 +0800
+Processing by EventsController#index as HTML
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" LIMIT $1 OFFSET $2[0m  [["LIMIT", 4], ["OFFSET", 0]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "registrations"."id" FROM "registrations" WHERE "registrations"."event_id" = $1[0m  [["event_id", 1]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "registrations"."id" FROM "registrations" WHERE "registrations"."event_id" = $1[0m  [["event_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered collection of events/_event.html.erb [1 times] (Duration: 3.1ms | Allocations: 1351)
+  Rendered events/index.html.erb within layouts/application (Duration: 4.3ms | Allocations: 1610)
+Completed 200 OK in 7ms (Views: 4.8ms | ActiveRecord: 1.1ms | Allocations: 2848)
+Started GET "/events/1" for 172.247.15.209 at 2022-10-09 23:27:28 +0800
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "registrations"."id" FROM "registrations" WHERE "registrations"."event_id" = $1[0m  [["event_id", 1]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "registrations"."id" FROM "registrations" WHERE "registrations"."event_id" = $1[0m  [["event_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered events/show.html.erb within layouts/application (Duration: 9.3ms | Allocations: 8155)
+Completed 200 OK in 58ms (Views: 8.6ms | ActiveRecord: 12.2ms | Allocations: 24204)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "events_production"[0m
+  [1m[35m (63.6ms)[0m  [1m[35mCREATE DATABASE "events_production" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "categories" CASCADE[0m
+  [1m[35m (9.1ms)[0m  [1m[35mCREATE TABLE "categories" ("id" bigserial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "categories_events" CASCADE[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "categories_events" ("event_id" integer, "category_id" integer)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "events" CASCADE[0m
+  [1m[35m (7.7ms)[0m  [1m[35mCREATE TABLE "events" ("id" bigserial primary key, "title" character varying, "location" character varying, "occurs_on" date, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "url" character varying, "description" text, "user_id" integer, "image_url" character varying, "avatar" character varying)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "registrations" CASCADE[0m
+  [1m[35m (7.3ms)[0m  [1m[35mCREATE TABLE "registrations" ("id" bigserial primary key, "user_id" integer, "event_id" integer, "note" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "sessions" CASCADE[0m
+  [1m[35m (7.6ms)[0m  [1m[35mCREATE TABLE "sessions" ("id" bigserial primary key, "session_id" character varying NOT NULL, "data" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_sessions_on_session_id" ON "sessions"  ("session_id")[0m
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE  INDEX  "index_sessions_on_updated_at" ON "sessions"  ("updated_at")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "taggings" CASCADE[0m
+  [1m[35m (7.8ms)[0m  [1m[35mCREATE TABLE "taggings" ("id" serial NOT NULL PRIMARY KEY, "tag_id" integer, "taggable_type" character varying, "taggable_id" integer, "tagger_type" character varying, "tagger_id" integer, "context" character varying(128), "created_at" timestamp)[0m
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE  INDEX  "index_taggings_on_context" ON "taggings"  ("context")[0m
+  [1m[35m (4.3ms)[0m  [1m[35mCREATE UNIQUE INDEX  "taggings_idx" ON "taggings"  ("tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type")[0m
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE  INDEX  "taggings_taggable_context_idx" ON "taggings"  ("taggable_id", "taggable_type", "context")[0m
+  [1m[35m (4.1ms)[0m  [1m[35mCREATE  INDEX  "taggings_idy" ON "taggings"  ("taggable_id", "taggable_type", "tagger_id", "context")[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE  INDEX  "index_taggings_on_taggable_id" ON "taggings"  ("taggable_id")[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE  INDEX  "index_taggings_on_taggable_type" ON "taggings"  ("taggable_type")[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE  INDEX  "index_taggings_on_tagger_id_and_tagger_type" ON "taggings"  ("tagger_id", "tagger_type")[0m
+  [1m[35m (4.1ms)[0m  [1m[35mCREATE  INDEX  "index_taggings_on_tagger_id" ON "taggings"  ("tagger_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "tags" CASCADE[0m
+  [1m[35m (8.3ms)[0m  [1m[35mCREATE TABLE "tags" ("id" serial NOT NULL PRIMARY KEY, "name" character varying, "created_at" timestamp, "updated_at" timestamp, "taggings_count" integer DEFAULT 0)[0m
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_tags_on_name" ON "tags"  ("name")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (8.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "login" character varying, "email" character varying, "password_digest" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "avatar" character varying, "activation_digest" character varying, "activated" boolean, "activated_at" timestamp, "image_url" character varying)[0m
+  [1m[35m (2.4ms)[0m  [1m[35mALTER TABLE "taggings" ADD CONSTRAINT "fk_rails_9fcd2e236b"
+FOREIGN KEY ("tag_id")
+  REFERENCES "tags" ("id")
+[0m
+  [1m[35m (7.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20221009091330)[0m
+  [1m[35m (1.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(1),
+(20100117152326),
+(20100127052222),
+(20100127075451),
+(20100127075551),
+(20100127092922),
+(20100129150906),
+(20200820154840),
+(20200822072630),
+(20200822072632),
+(20200822072634),
+(20200822150551),
+(20200824041954),
+(20200831102313),
+(20200831102324),
+(20220926085903),
+(20220926085904),
+(20221008162817),
+(20221008163057);
+
+[0m
+  [1m[35m (8.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "production"], ["created_at", "2022-10-09 15:39:35.134101"], ["updated_at", "2022-10-09 15:39:35.134101"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "577e3ab2f9dadc40b634fd46e724b211fdb50f10"], ["created_at", "2022-10-09 15:39:35.138387"], ["updated_at", "2022-10-09 15:39:35.138387"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.4ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Conferences"], ["created_at", "2022-10-09 15:39:35.151545"], ["updated_at", "2022-10-09 15:39:35.151545"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.2ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Parties"], ["created_at", "2022-10-09 15:39:35.151545"], ["updated_at", "2022-10-09 15:39:35.151545"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.2ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Concerts"], ["created_at", "2022-10-09 15:39:35.151545"], ["updated_at", "2022-10-09 15:39:35.151545"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.2ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Readings"], ["created_at", "2022-10-09 15:39:35.151545"], ["updated_at", "2022-10-09 15:39:35.151545"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.2ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Movies"], ["created_at", "2022-10-09 15:39:35.151545"], ["updated_at", "2022-10-09 15:39:35.151545"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE DATABASE "events_production" ENCODING = 'unicode'[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (64.1ms)[0m  [1m[35mCREATE DATABASE "events_production" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "categories" CASCADE[0m
+  [1m[35m (9.2ms)[0m  [1m[35mCREATE TABLE "categories" ("id" bigserial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "categories_events" CASCADE[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "categories_events" ("event_id" integer, "category_id" integer)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "events" CASCADE[0m
+  [1m[35m (7.5ms)[0m  [1m[35mCREATE TABLE "events" ("id" bigserial primary key, "title" character varying, "location" character varying, "occurs_on" date, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "url" character varying, "description" text, "user_id" integer, "image_url" character varying, "avatar" character varying)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "registrations" CASCADE[0m
+  [1m[35m (7.5ms)[0m  [1m[35mCREATE TABLE "registrations" ("id" bigserial primary key, "user_id" integer, "event_id" integer, "note" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "sessions" CASCADE[0m
+  [1m[35m (7.3ms)[0m  [1m[35mCREATE TABLE "sessions" ("id" bigserial primary key, "session_id" character varying NOT NULL, "data" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_sessions_on_session_id" ON "sessions"  ("session_id")[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE  INDEX  "index_sessions_on_updated_at" ON "sessions"  ("updated_at")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "taggings" CASCADE[0m
+  [1m[35m (7.6ms)[0m  [1m[35mCREATE TABLE "taggings" ("id" serial NOT NULL PRIMARY KEY, "tag_id" integer, "taggable_type" character varying, "taggable_id" integer, "tagger_type" character varying, "tagger_id" integer, "context" character varying(128), "created_at" timestamp)[0m
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE  INDEX  "index_taggings_on_context" ON "taggings"  ("context")[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE UNIQUE INDEX  "taggings_idx" ON "taggings"  ("tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type")[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE  INDEX  "taggings_taggable_context_idx" ON "taggings"  ("taggable_id", "taggable_type", "context")[0m
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE  INDEX  "taggings_idy" ON "taggings"  ("taggable_id", "taggable_type", "tagger_id", "context")[0m
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE  INDEX  "index_taggings_on_taggable_id" ON "taggings"  ("taggable_id")[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE  INDEX  "index_taggings_on_taggable_type" ON "taggings"  ("taggable_type")[0m
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE  INDEX  "index_taggings_on_tagger_id_and_tagger_type" ON "taggings"  ("tagger_id", "tagger_type")[0m
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE  INDEX  "index_taggings_on_tagger_id" ON "taggings"  ("tagger_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "tags" CASCADE[0m
+  [1m[35m (7.6ms)[0m  [1m[35mCREATE TABLE "tags" ("id" serial NOT NULL PRIMARY KEY, "name" character varying, "created_at" timestamp, "updated_at" timestamp, "taggings_count" integer DEFAULT 0)[0m
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_tags_on_name" ON "tags"  ("name")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (8.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "login" character varying, "email" character varying, "password_digest" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "avatar" character varying, "activation_digest" character varying, "activated" boolean, "activated_at" timestamp, "image_url" character varying)[0m
+  [1m[35m (2.1ms)[0m  [1m[35mALTER TABLE "taggings" ADD CONSTRAINT "fk_rails_9fcd2e236b"
+FOREIGN KEY ("tag_id")
+  REFERENCES "tags" ("id")
+[0m
+  [1m[35m (7.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20221009091330)[0m
+  [1m[35m (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(1),
+(20100117152326),
+(20100127052222),
+(20100127075451),
+(20100127075551),
+(20100127092922),
+(20100129150906),
+(20200820154840),
+(20200822072630),
+(20200822072632),
+(20200822072634),
+(20200822150551),
+(20200824041954),
+(20200831102313),
+(20200831102324),
+(20220926085903),
+(20220926085904),
+(20221008162817),
+(20221008163057);
+
+[0m
+  [1m[35m (7.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "production"], ["created_at", "2022-10-09 15:40:25.069193"], ["updated_at", "2022-10-09 15:40:25.069193"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "577e3ab2f9dadc40b634fd46e724b211fdb50f10"], ["created_at", "2022-10-09 15:40:25.073187"], ["updated_at", "2022-10-09 15:40:25.073187"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.3ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Conferences"], ["created_at", "2022-10-09 15:40:25.088204"], ["updated_at", "2022-10-09 15:40:25.088204"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.2ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Parties"], ["created_at", "2022-10-09 15:40:25.088204"], ["updated_at", "2022-10-09 15:40:25.088204"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.3ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Concerts"], ["created_at", "2022-10-09 15:40:25.088204"], ["updated_at", "2022-10-09 15:40:25.088204"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.2ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Readings"], ["created_at", "2022-10-09 15:40:25.088204"], ["updated_at", "2022-10-09 15:40:25.088204"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.1ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Movies"], ["created_at", "2022-10-09 15:40:25.088204"], ["updated_at", "2022-10-09 15:40:25.088204"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (63.5ms)[0m  [1m[35mCREATE DATABASE "events_production" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "categories" CASCADE[0m
+  [1m[35m (9.3ms)[0m  [1m[35mCREATE TABLE "categories" ("id" bigserial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "categories_events" CASCADE[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "categories_events" ("event_id" integer, "category_id" integer)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "events" CASCADE[0m
+  [1m[35m (7.6ms)[0m  [1m[35mCREATE TABLE "events" ("id" bigserial primary key, "title" character varying, "location" character varying, "occurs_on" date, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "url" character varying, "description" text, "user_id" integer, "image_url" character varying, "avatar" character varying)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "registrations" CASCADE[0m
+  [1m[35m (7.6ms)[0m  [1m[35mCREATE TABLE "registrations" ("id" bigserial primary key, "user_id" integer, "event_id" integer, "note" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "sessions" CASCADE[0m
+  [1m[35m (7.4ms)[0m  [1m[35mCREATE TABLE "sessions" ("id" bigserial primary key, "session_id" character varying NOT NULL, "data" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_sessions_on_session_id" ON "sessions"  ("session_id")[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE  INDEX  "index_sessions_on_updated_at" ON "sessions"  ("updated_at")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "taggings" CASCADE[0m
+  [1m[35m (7.6ms)[0m  [1m[35mCREATE TABLE "taggings" ("id" serial NOT NULL PRIMARY KEY, "tag_id" integer, "taggable_type" character varying, "taggable_id" integer, "tagger_type" character varying, "tagger_id" integer, "context" character varying(128), "created_at" timestamp)[0m
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE  INDEX  "index_taggings_on_context" ON "taggings"  ("context")[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE UNIQUE INDEX  "taggings_idx" ON "taggings"  ("tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type")[0m
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE  INDEX  "taggings_taggable_context_idx" ON "taggings"  ("taggable_id", "taggable_type", "context")[0m
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE  INDEX  "taggings_idy" ON "taggings"  ("taggable_id", "taggable_type", "tagger_id", "context")[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE  INDEX  "index_taggings_on_taggable_id" ON "taggings"  ("taggable_id")[0m
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE  INDEX  "index_taggings_on_taggable_type" ON "taggings"  ("taggable_type")[0m
+  [1m[35m (4.1ms)[0m  [1m[35mCREATE  INDEX  "index_taggings_on_tagger_id_and_tagger_type" ON "taggings"  ("tagger_id", "tagger_type")[0m
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE  INDEX  "index_taggings_on_tagger_id" ON "taggings"  ("tagger_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "tags" CASCADE[0m
+  [1m[35m (7.5ms)[0m  [1m[35mCREATE TABLE "tags" ("id" serial NOT NULL PRIMARY KEY, "name" character varying, "created_at" timestamp, "updated_at" timestamp, "taggings_count" integer DEFAULT 0)[0m
+  [1m[35m (6.6ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_tags_on_name" ON "tags"  ("name")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (9.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "login" character varying, "email" character varying, "password_digest" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "avatar" character varying, "activation_digest" character varying, "activated" boolean, "activated_at" timestamp, "image_url" character varying)[0m
+  [1m[35m (2.2ms)[0m  [1m[35mALTER TABLE "taggings" ADD CONSTRAINT "fk_rails_9fcd2e236b"
+FOREIGN KEY ("tag_id")
+  REFERENCES "tags" ("id")
+[0m
+  [1m[35m (7.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20221009091330)[0m
+  [1m[35m (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(1),
+(20100117152326),
+(20100127052222),
+(20100127075451),
+(20100127075551),
+(20100127092922),
+(20100129150906),
+(20200820154840),
+(20200822072630),
+(20200822072632),
+(20200822072634),
+(20200822150551),
+(20200824041954),
+(20200831102313),
+(20200831102324),
+(20220926085903),
+(20220926085904),
+(20221008162817),
+(20221008163057);
+
+[0m
+  [1m[35m (7.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "production"], ["created_at", "2022-10-09 15:41:19.725405"], ["updated_at", "2022-10-09 15:41:19.725405"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "577e3ab2f9dadc40b634fd46e724b211fdb50f10"], ["created_at", "2022-10-09 15:41:19.728861"], ["updated_at", "2022-10-09 15:41:19.728861"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.3ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Conferences"], ["created_at", "2022-10-09 15:41:19.740543"], ["updated_at", "2022-10-09 15:41:19.740543"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.2ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Parties"], ["created_at", "2022-10-09 15:41:19.740543"], ["updated_at", "2022-10-09 15:41:19.740543"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.2ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Concerts"], ["created_at", "2022-10-09 15:41:19.740543"], ["updated_at", "2022-10-09 15:41:19.740543"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.1ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Readings"], ["created_at", "2022-10-09 15:41:19.740543"], ["updated_at", "2022-10-09 15:41:19.740543"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.2ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Movies"], ["created_at", "2022-10-09 15:41:19.740543"], ["updated_at", "2022-10-09 15:41:19.740543"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(209402154943284765)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(209402154943284765)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(209402154943284765)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(209402154943284765)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/users" for 172.247.15.209 at 2022-10-09 23:51:17 +0800
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"ZHcslROwNoOhK3wsf2Av585cg4tlGuPgnYvuY8CotTV3dDxePoO7/PsrEUs0sFid3gtvw9ke/1sSVuK/hwzbzQ==", "user"=>{"login"=>"test", "email"=>"test@163.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "avatar"=>"", "avatar_cache"=>""}, "commit"=>"我要注册！"}
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."login") = LOWER($1) LIMIT $2[0m  [["login", "test"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "test@163.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("login", "email", "password_digest", "created_at", "updated_at", "activation_digest") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["login", "test"], ["email", "test@163.com"], ["password_digest", "$2a$12$UW2r1Dk3E7x9HVTB9tYjUuFWSqM2Z.Zif6rf.UAut.dOt0JIBcO1m"], ["created_at", "2022-10-09 15:51:17.746884"], ["updated_at", "2022-10-09 15:51:17.746884"], ["activation_digest", "$2a$12$KFZOCc7gANPNqjgvOgnbX.C9uVE2HEdzpdpTPN5Yq0Od/ENiiET0W"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  Rendering user_mailer/account_activation.html.erb within layouts/mailer
+  Rendered user_mailer/account_activation.html.erb within layouts/mailer (Duration: 0.8ms | Allocations: 232)
+  Rendering user_mailer/account_activation.text.erb within layouts/mailer
+  Rendered user_mailer/account_activation.text.erb within layouts/mailer (Duration: 0.2ms | Allocations: 164)
+UserMailer#account_activation: processed outbound mail in 3.5ms
+Delivered mail 6342edf5dc65a_9648712b9c33929@PylonTQx.mail (409.7ms)
+Date: Sun, 09 Oct 2022 23:51:17 +0800
+From: albert_ludake@189.cn
+To: test@163.com
+Message-ID: <6342edf5dc65a_9648712b9c33929@PylonTQx.mail>
+Subject: Account activation
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_6342edf5dc271_9648712b9c338f7";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_6342edf5dc271_9648712b9c338f7
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Hi test,
+
+Welcome to Events App! Click on the link below to activate your account:
+
+https://events.pylontqx.com:5443/account_activations/fQZqunccBNqLjDgBBUFR5Q/edit?email=test%40163.com
+
+
+----==_mimepart_6342edf5dc271_9648712b9c338f7
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>Events App</h1>
+
+<p>Hi test,</p>
+
+<p>
+Welcome to Events App! Click on the link below to activate your account:
+</p>
+
+<a href="https://events.pylontqx.com:5443/account_activations/fQZqunccBNqLjDgBBUFR5Q/edit?email=test%40163.com">Activate</a>
+
+  </body>
+</html>
+
+----==_mimepart_6342edf5dc271_9648712b9c338f7--
+
+No template found for UsersController#create, rendering head :no_content
+Completed 204 No Content in 775ms (ActiveRecord: 10.8ms | Allocations: 22458)
+Started GET "/" for 172.247.15.209 at 2022-10-09 23:51:26 +0800
+Processing by EventsController#index as HTML
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" LIMIT $1 OFFSET $2[0m  [["LIMIT", 4], ["OFFSET", 0]]
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 3)
+  Rendered events/index.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1373)
+Completed 200 OK in 18ms (Views: 4.1ms | ActiveRecord: 5.3ms | Allocations: 9082)
+Started GET "/" for 172.247.15.209 at 2022-10-09 23:52:16 +0800
+Processing by EventsController#index as HTML
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" LIMIT $1 OFFSET $2[0m  [["LIMIT", 4], ["OFFSET", 0]]
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 3)
+  Rendered events/index.html.erb within layouts/application (Duration: 4.2ms | Allocations: 1373)
+Completed 200 OK in 21ms (Views: 6.1ms | ActiveRecord: 5.1ms | Allocations: 9081)
+Started GET "/events" for 172.247.15.209 at 2022-10-09 23:52:19 +0800
+Processing by EventsController#index as HTML
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" LIMIT $1 OFFSET $2[0m  [["LIMIT", 4], ["OFFSET", 0]]
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 3)
+  Rendered events/index.html.erb within layouts/application (Duration: 5.1ms | Allocations: 1373)
+Completed 200 OK in 25ms (Views: 6.8ms | ActiveRecord: 6.5ms | Allocations: 9081)
+Started GET "/login" for 172.247.15.209 at 2022-10-09 23:52:23 +0800
+Processing by UsersController#login as HTML
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."login" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering users/login.html.erb within layouts/application
+  Rendered users/login.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1385)
+Completed 200 OK in 10ms (Views: 4.0ms | ActiveRecord: 1.9ms | Allocations: 4299)
+Started GET "/signup" for 172.247.15.209 at 2022-10-09 23:52:26 +0800
+Processing by UsersController#new as HTML
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 2.1ms | Allocations: 1143)
+  Rendered users/new.html.erb within layouts/application (Duration: 4.8ms | Allocations: 2568)
+Completed 200 OK in 38ms (Views: 9.0ms | ActiveRecord: 7.0ms | Allocations: 16261)
+Started GET "/signup" for 172.247.15.209 at 2022-10-09 23:52:37 +0800
+Processing by UsersController#new as HTML
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 1.1ms | Allocations: 1140)
+  Rendered users/new.html.erb within layouts/application (Duration: 2.3ms | Allocations: 2431)
+Completed 200 OK in 12ms (Views: 3.4ms | ActiveRecord: 2.7ms | Allocations: 10295)
+Started GET "/events" for 172.247.15.209 at 2022-10-09 23:52:40 +0800
+Processing by EventsController#index as HTML
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" LIMIT $1 OFFSET $2[0m  [["LIMIT", 4], ["OFFSET", 0]]
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 3)
+  Rendered events/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 208)
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.4ms | Allocations: 1469)
+Started GET "/events" for 172.247.15.209 at 2022-10-10 00:16:22 +0800
+Processing by EventsController#index as HTML
+Completed 500 Internal Server Error in 4ms (Allocations: 1831)
+  
+PG::ConnectionBad (could not connect to server: Connection refused
+	Is the server running on host "::1" and accepting
+	TCP/IP connections on port 5432?
+
+could not connect to server: Connection refused
+	Is the server running on host "127.0.0.1" and accepting
+	TCP/IP connections on port 5432?
+):
+  
+app/controllers/application_controller.rb:10:in `block in set_charset'
+app/controllers/application_controller.rb:9:in `set_charset'
+Started GET "/sidekiq/" for 127.0.0.1 at 2022-10-10 00:20:58 +0800
+Started GET "/sidekiq/stylesheets/bootstrap.css" for 127.0.0.1 at 2022-10-10 00:20:58 +0800
+Started GET "/sidekiq/stylesheets/application.css" for 127.0.0.1 at 2022-10-10 00:20:58 +0800
+Started GET "/sidekiq/stylesheets/application-dark.css" for 127.0.0.1 at 2022-10-10 00:20:58 +0800
+Started GET "/sidekiq/javascripts/graph.js" for 127.0.0.1 at 2022-10-10 00:20:58 +0800
+Started GET "/sidekiq/javascripts/dashboard.js" for 127.0.0.1 at 2022-10-10 00:20:58 +0800
+Started GET "/sidekiq/javascripts/application.js" for 127.0.0.1 at 2022-10-10 00:20:58 +0800
+Started GET "/sidekiq/images/status.png" for 127.0.0.1 at 2022-10-10 00:20:58 +0800
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-10-10 00:21:03 +0800
+Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-10-10 00:21:08 +0800
+Started GET "/sidekiq/busy" for 127.0.0.1 at 2022-10-10 00:21:09 +0800
+Started GET "/events" for 172.247.15.209 at 2022-10-10 00:22:16 +0800
+Processing by EventsController#index as HTML
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" LIMIT $1 OFFSET $2[0m  [["LIMIT", 4], ["OFFSET", 0]]
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 3)
+  Rendered events/index.html.erb within layouts/application (Duration: 5.6ms | Allocations: 1373)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 318ms (Views: 13.8ms | ActiveRecord: 16.3ms | Allocations: 15990)
+Started GET "/events" for 172.247.15.209 at 2022-10-10 00:22:22 +0800
+Processing by EventsController#index as HTML
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" LIMIT $1 OFFSET $2[0m  [["LIMIT", 4], ["OFFSET", 0]]
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 3)
+  Rendered events/index.html.erb within layouts/application (Duration: 5.4ms | Allocations: 1372)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 39ms (Views: 18.5ms | ActiveRecord: 10.0ms | Allocations: 15883)
+Started GET "/users/1/edit" for 172.247.15.209 at 2022-10-10 00:22:30 +0800
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 1.8ms | Allocations: 1160)
+  Rendered users/edit.html.erb within layouts/application (Duration: 3.8ms | Allocations: 2465)
+Completed 200 OK in 8ms (Views: 5.6ms | ActiveRecord: 0.7ms | Allocations: 4652)
+Started GET "/events" for 172.247.15.209 at 2022-10-18 04:02:24 +0800
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  Rendered events/index.html.erb within layouts/application (Duration: 5.1ms | Allocations: 1493)
+Completed 500 Internal Server Error in 14ms (Allocations: 4241)
+  
+ActionView::Template::Error (FATAL:  database "events_production" does not exist
+):
+    3: 
+    4: <h1><%= I18n.t('Listing events') %></h1>
+    5:  
+    6: <%= render :partial => @events %>
+    7: 
+    8: <%=  will_paginate @events %>
+    9: 
+  
+app/views/events/index.html.erb:6
+app/controllers/events_controller.rb:35:in `index'
+Started GET "/" for 172.247.15.209 at 2022-10-18 04:02:36 +0800
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  Rendered events/index.html.erb within layouts/application (Duration: 4.8ms | Allocations: 1493)
+Completed 500 Internal Server Error in 15ms (Allocations: 4241)
+  
+ActionView::Template::Error (FATAL:  database "events_production" does not exist
+):
+    3: 
+    4: <h1><%= I18n.t('Listing events') %></h1>
+    5:  
+    6: <%= render :partial => @events %>
+    7: 
+    8: <%=  will_paginate @events %>
+    9: 
+  
+app/views/events/index.html.erb:6
+app/controllers/events_controller.rb:35:in `index'
+  [1m[35m (84.7ms)[0m  [1m[35mCREATE DATABASE "events_production" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "categories" CASCADE[0m
+  [1m[35m (10.3ms)[0m  [1m[35mCREATE TABLE "categories" ("id" bigserial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "categories_events" CASCADE[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "categories_events" ("event_id" integer, "category_id" integer)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "events" CASCADE[0m
+  [1m[35m (8.3ms)[0m  [1m[35mCREATE TABLE "events" ("id" bigserial primary key, "title" character varying, "location" character varying, "occurs_on" date, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "url" character varying, "description" text, "user_id" integer, "image_url" character varying, "avatar" character varying)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "registrations" CASCADE[0m
+  [1m[35m (8.1ms)[0m  [1m[35mCREATE TABLE "registrations" ("id" bigserial primary key, "user_id" integer, "event_id" integer, "note" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "sessions" CASCADE[0m
+  [1m[35m (8.0ms)[0m  [1m[35mCREATE TABLE "sessions" ("id" bigserial primary key, "session_id" character varying NOT NULL, "data" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (4.1ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_sessions_on_session_id" ON "sessions"  ("session_id")[0m
+  [1m[35m (4.1ms)[0m  [1m[35mCREATE  INDEX  "index_sessions_on_updated_at" ON "sessions"  ("updated_at")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "taggings" CASCADE[0m
+  [1m[35m (12.8ms)[0m  [1m[35mCREATE TABLE "taggings" ("id" serial NOT NULL PRIMARY KEY, "tag_id" integer, "taggable_type" character varying, "taggable_id" integer, "tagger_type" character varying, "tagger_id" integer, "context" character varying(128), "created_at" timestamp)[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE  INDEX  "index_taggings_on_context" ON "taggings"  ("context")[0m
+  [1m[35m (4.1ms)[0m  [1m[35mCREATE UNIQUE INDEX  "taggings_idx" ON "taggings"  ("tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type")[0m
+  [1m[35m (4.1ms)[0m  [1m[35mCREATE  INDEX  "taggings_taggable_context_idx" ON "taggings"  ("taggable_id", "taggable_type", "context")[0m
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE  INDEX  "taggings_idy" ON "taggings"  ("taggable_id", "taggable_type", "tagger_id", "context")[0m
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE  INDEX  "index_taggings_on_taggable_id" ON "taggings"  ("taggable_id")[0m
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE  INDEX  "index_taggings_on_taggable_type" ON "taggings"  ("taggable_type")[0m
+  [1m[35m (6.8ms)[0m  [1m[35mCREATE  INDEX  "index_taggings_on_tagger_id_and_tagger_type" ON "taggings"  ("tagger_id", "tagger_type")[0m
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE  INDEX  "index_taggings_on_tagger_id" ON "taggings"  ("tagger_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "tags" CASCADE[0m
+  [1m[35m (8.0ms)[0m  [1m[35mCREATE TABLE "tags" ("id" serial NOT NULL PRIMARY KEY, "name" character varying, "created_at" timestamp, "updated_at" timestamp, "taggings_count" integer DEFAULT 0)[0m
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_tags_on_name" ON "tags"  ("name")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (7.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "login" character varying, "email" character varying, "password_digest" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "avatar" character varying, "activation_digest" character varying, "activated" boolean, "activated_at" timestamp, "image_url" character varying, "reset_digest" character varying, "reset_sent_at" timestamp, "remember_digest" character varying)[0m
+  [1m[35m (1.9ms)[0m  [1m[35mALTER TABLE "taggings" ADD CONSTRAINT "fk_rails_9fcd2e236b"
+FOREIGN KEY ("tag_id")
+  REFERENCES "tags" ("id")
+[0m
+  [1m[35m (7.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20221010063555)[0m
+  [1m[35m (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(1),
+(20100117152326),
+(20100127052222),
+(20100127075451),
+(20100127075551),
+(20100127092922),
+(20100129150906),
+(20200820154840),
+(20200822072630),
+(20200822072632),
+(20200822072634),
+(20200822150551),
+(20200824041954),
+(20200831102313),
+(20200831102324),
+(20220926085903),
+(20220926085904),
+(20221008162817),
+(20221008163057),
+(20221009091330),
+(20221010002621);
+
+[0m
+  [1m[35m (7.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "production"], ["created_at", "2022-10-19 00:46:57.619471"], ["updated_at", "2022-10-19 00:46:57.619471"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "44f27be1ca4a0e0863e8d610b2322f4d86457510"], ["created_at", "2022-10-19 00:46:57.622286"], ["updated_at", "2022-10-19 00:46:57.622286"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.4ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Conferences"], ["created_at", "2022-10-19 00:46:57.632350"], ["updated_at", "2022-10-19 00:46:57.632350"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.2ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Parties"], ["created_at", "2022-10-19 00:46:57.632350"], ["updated_at", "2022-10-19 00:46:57.632350"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.2ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Concerts"], ["created_at", "2022-10-19 00:46:57.632350"], ["updated_at", "2022-10-19 00:46:57.632350"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.2ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Readings"], ["created_at", "2022-10-19 00:46:57.632350"], ["updated_at", "2022-10-19 00:46:57.632350"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.2ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Movies"], ["created_at", "2022-10-19 00:46:57.632350"], ["updated_at", "2022-10-19 00:46:57.632350"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m

@@ -1,0 +1,38 @@
+Arguments: 
+  /usr/local/lib/node_modules/node/bin/node /usr/local/bin/yarn install
+
+PATH: 
+  /usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/local/bin:/usr/local/bin
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  14.20.1
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: EACCES: permission denied, mkdir '/home/ludake/events/node_modules/@ampproject'
+
+npm manifest: 
+  {
+    "name": "apps",
+    "private": true,
+    "dependencies": {
+      "14": "^3.1.6",
+      "@rails/webpacker": "5.4.3",
+      "bin": "^0.0.0",
+      "npm": "^8.19.2",
+      "webpack": "^4.46.0",
+      "webpack-cli": "^3.3.12",
+      "webpack-dev-server": "^3"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
