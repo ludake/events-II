@@ -1,0 +1,184 @@
+version: '3.6'
+
+x-app: &apps
+  build:
+    context: .
+    args: 
+      RUBY_VERSION: '2.7.6'
+      PG_MAJOR: '14'
+      NODE_MAJOR: '14'
+      BUNDLER_VERSION: '2.3.23'
+      YARN_VERSION: '1.22.19'
+  environment: &env
+    NODE_ENV: ${NODE_ENV:-production}
+    RAILS_ENV: ${RAILS_ENV:-production}
+    RACK_ENV: ${RACK_ENV:-production}
+    RAILS_MASTER_KEY: "<%= RAILS_MASTER_KEY %>"
+    YARN_CACHE_FOLDER: /apps/node_modules/.yarn-cache
+    
+  image: events-project:1.1.3
+  tmpfs:
+    - /tmp
+    - /apps/tmp/pids
+
+x-backend: &backend
+  <<: *apps
+  stdin_open: true
+  tty: true
+  volumes:
+    - ..:/apps:cached
+    # or for selinux: https://docs.docker.com/storage/bind-mounts/#configure-the-selinux-label
+    # - .:/app:cached,z
+    - rails_cache:/apps/tmp/cache
+    - bundle:/usr/local/bundle
+    - node_modules:/apps/node_modules
+    - packs:/apps/public/packs
+    - packs-test:/apps/public/packs-test
+    - .psqlrc:/root/.psqlrc:ro
+    - .bashrc:/root/.bashrc:ro
+  environment: 
+    <<: *env
+    REDIS_URL: redis://redis:6379/0
+    DATABASE_URL: postgres://postgres:yourpassword@postgres:5432
+    BOOTSNAP_CACHE_DIR: /usr/local/bundle/_bootsnap
+    WEBPACKER_DEV_SERVER_HOST: webpacker
+    WEB_CONCURRENCY: 0
+    HISTFILE: /apps/log/.bash_history
+    PSQL_HISTFILE: /apps/log/.psql_history
+    EDITOR: vi
+  depends_on: 
+    postgres:
+      condition: service_healthy
+    redis:
+      condition: service_healthy
+
+services:
+  rails:
+    <<: *backend
+    command:
+      #rm config/credentials.yml.enc && \  
+      #rm config/credentials/production.yml.enc && \
+      gem install msgpack && bundle install &&  bundle exec rails
+ 
+
+  web:
+    <<: *backend
+    command: 
+      bash -c "rm -f tmp/pids/server.pid" && bundle install && bundle exec rails server -b '0.0.0.0' 
+    ports:
+      - '3003:3003'
+    depends_on:
+      webpacker:
+        condition: service_started
+      sidekiq:
+        condition: service_started
+    
+  sidekiq:
+    <<: *backend
+    environment:
+      TZ: Asia/Shanghai
+      REDIS_URL: redis://redis:6379/0
+    command: 
+      #apt install libmsgpack-dev && \ 
+      #gem install zeitwerk msgpack bcrypt redis-client && \
+      #bundle install  && \
+      bundle exec sidekiq -C config/sidekiq.yml
+    links:
+      - redis
+    depends_on:
+      - redis
+    restart: always    
+  postgres:
+    image: postgres:14.0
+    #command: -c ssl=on -c ssl_cert_file=/var/lib/postgresql/server.crt -c ssl_key_file=/var/lib/postgresql/server.key
+    volumes:
+      #- ./ca/server.crt:/var/lib/postgresql/server.crt
+      #- ./ca/server.key:/var/lib/postgresql/server.key
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+      - .dockerdev/.psqlrc:/root/.psqlrc:ro
+      - history:/usr/local/hist
+      - postgres:/var/lib/postgresql/data
+      - /var/log/postgresql:/root/log:cached
+      - /var/run/postgresql:/var/run/postgresql
+    user: postgres    
+    environment:
+      TZ: Asia/Shanghai
+      UID: 10001
+      GID: 10001
+      PSQL_HISTFILE: /usr/local/hist/.psql_history
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${postgres_DATABASE_PASSWORD}
+      variables: '{timezone: "Asia/Shanghai"}'
+    ports:
+      - 5432:5432
+    healthcheck:
+      test: pg_isready -U postgres -h postgres
+      interval: 5s
+    restart: unless-stopped
+  pgadmin:
+    image: dpage/pgadmin4
+    depends_on:
+      - postgres
+    ports:
+      - 5433:80
+    volumes:
+      - pgadmin:/data
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+
+    environment:
+      PGADMIN_DEFAULT_EMAIL: pgadmin4@pgadmin.org
+      PGADMIN_DEFAULT_PASSWORD: ${postgres_DATABASE_PASSWORD}
+    restart: unless-stopped
+
+  redis:
+    image: redis:7.0-alpine
+    volumes:
+      - redis:/data
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+      - /myraid10/docker-compose/redis/redis.conf:/etc/redis/redis.conf
+      - /myraid10/docker-compose/redis/data:/data
+    command: redis-server /etc/redis/redis.conf
+    environment:
+      - TZ=Asia/Shanghai
+    ports:
+      - 6379:6379
+    healthcheck:
+      test: redis-cli ping
+      interval: 1s
+      timeout: 3s
+      retries: 30
+    restart: always
+
+  webpacker:
+    <<: *apps
+    command: yarn install && RUN ["chmod", "+x", "./configure"] && bundle exec ./bin/webpack-dev-server
+    ports:
+      - '3035:3035'
+    volumes:
+      - ..:/apps:cached
+      - bundle:/usr/local/bundle
+      - node_modules:/apps/node_modules
+      - packs:/apps/public/packs
+      - packs-test:/apps/public/packs-test
+    environment:
+      <<: *env
+      WEBPACKER_DEV_SERVER_HOST: 0.0.0.0
+      YARN_CACHE_FOLDER: /apps/node_modules/.yarn-cache
+volumes:
+  postgres:
+  pgadmin:
+  redis:
+  bundle:
+  node_modules:
+  rails_cache:
+  history:
+  packs:
+  packs-test:
+
+networks:
+  default:
+    external: true
+    name: traefik_servicenet

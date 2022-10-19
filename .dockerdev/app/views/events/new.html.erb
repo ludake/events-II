@@ -1,0 +1,20 @@
+<h1><%= t('New event') %></h1>
+
+<hr/>
+
+<%= form_for @event, html: { multipart: true }, :action => 'create' do |f| %>
+
+  <%= render 'form' %>
+  <div class="field">
+  	<label>上传描述图片==></label>
+    <%= f.file_field :avatar %>
+    <%= f.hidden_field :avatar_cache %>
+  </div>
+  <br />
+  <%= submit_tag t('create') %>
+        
+  <%= link_to t('back'), events_path %>
+
+<%end%>
+
+

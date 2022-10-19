@@ -1,0 +1,5 @@
+Hi <%= @user.login %>,
+
+欢迎使用Events App! 点击以下链接，以激活您的账户:
+
+<%= edit_account_activation_url(@user.activation_token, email: @user.email) %>

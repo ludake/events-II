@@ -1,0 +1,13 @@
+{
+  "name": "apps",
+  "private": true,
+  "dependencies": {
+    "14": "^3.1.6",
+    "@rails/webpacker": "5.4.3",
+    "bin": "^0.0.0",
+    "npm": "^8.19.2",
+    "webpack": "^4.46.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3"
+  }
+}

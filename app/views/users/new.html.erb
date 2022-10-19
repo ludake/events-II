@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+
+<h2> <%= t('User Registration') %> </h2>
+
+<%= form_tag :action => 'create' do %>
+	<%= render :partial => 'form' %>
+	<p><%= submit_tag t('Sign up!') %></p>
+        <p><%= link_to(t('signin'), login_url) %></p>
+<% end %>
+  </div>
+</div>
+<style type="text/css">
+      .col-md-6{
+          text-align: center;
+      } 
+</style>

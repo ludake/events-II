@@ -1,0 +1,42 @@
+#!/usr/bin/env ruby -w
+ 
+#
+# config/puma.rb
+#
+ 
+rails_env = ENV['RAILS_ENV'] || 'production'
+threads 6,6
+environment 'production'
+directory '/myraid10/var/www/events/current'
+
+worker_timeout 60
+workers Integer(ENV['WEB_CONCURRENCY'] || 6)
+threads_count = Integer(ENV['MAX_THREADS'] || 16)
+threads threads_count, threads_count
+
+preload_app!
+#daemonize true
+
+
+
+app_name   ="events"
+app_dir = File.expand_path("../..", __FILE__) 
+shared_path="/myraid10/var/www/#{app_name}/shared"
+bind "unix://#{shared_path}/tmp/sockets/puma.sock"
+pidfile "#{shared_path}/tmp/pids/puma.pid"
+state_path "#{shared_path}/tmp/pids/puma.state"
+
+
+on_worker_boot do
+  require "active_record"
+  ActiveRecord::Base.connection.disconnect! rescue ActiveRecord::ConnectionNotEstablished
+  ActiveRecord::Base.establish_connection(YAML.load_file("#{app_dir}/config/database.yml")[rails_env])
+end
+
+
+activate_control_app
+
+
+
+ 
+

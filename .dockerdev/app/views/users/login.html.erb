@@ -1,0 +1,22 @@
+<h1><%= t('Please') + t('Login') %></h1>
+
+<%= form_tag :action => 'login' do %>
+  <p><label><%= t('Login name') %>:<br />
+  <%= text_field_tag :login %></label></p>
+
+  <p>
+    <label><%= t('Password') %>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <%= link_to(t('forgot password'),  new_password_reset_path) %>
+  </p>
+  <p>
+    <%= password_field_tag :password %></label>
+  </p>
+  <p><label><%= check_box :remember_me, class: "checkbox inline" %>
+        <span><%= t'Remember me on this computer'%></span>
+     </label>
+  </p>
+  <p>
+    <%= submit_tag t('Login'), :id=>'submit_button',:onclick=>'submit();'  %>
+  </p>
+  <p><%= t'New user?'%> <%= link_to(t('Sign up!'), signup_url) %></p>
+<% end %>
